@@ -28,7 +28,8 @@ public class StudentDaoImpl  implements StudentDao {
 
     public List<Student> getStudents() {
         try (Session session = HibernateUtil.getSessionFactory().openSession()) {
-            return session.createQuery("from Student", Student.class).list();
+//            return session.createQuery("from Student",Student.class).list();
+            return  session.createCriteria(Student.class).list();
         }
     }
 

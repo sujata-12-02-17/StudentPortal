@@ -20,12 +20,13 @@ public class HibernateUtil {
                 // Hibernate settings equivalent to hibernate.cfg.xml's properties
                 Properties settings = new Properties();
                 settings.put(Environment.DRIVER, "org.h2.Driver");
-                settings.put(Environment.URL, "org.h2.Driver");
+                settings.put(Environment.URL, "jdbc:h2:mem:test");
                 settings.put(Environment.USER, "sa");
-                settings.put(Environment.PASS, "password");
+                settings.put(Environment.PASS, "");
                 settings.put(Environment.DIALECT, "org.hibernate.dialect.H2Dialect");
+//                settings.put(Environment)
 
-                settings.put(Environment.SHOW_SQL, "false");
+                settings.put(Environment.SHOW_SQL, "true");
 
                 settings.put(Environment.CURRENT_SESSION_CONTEXT_CLASS, "thread");
 
