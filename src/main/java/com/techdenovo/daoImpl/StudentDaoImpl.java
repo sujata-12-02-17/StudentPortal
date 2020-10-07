@@ -29,7 +29,7 @@ public class StudentDaoImpl  implements StudentDao {
     public List<Student> getStudents() {
         try (Session session = HibernateUtil.getSessionFactory().openSession()) {
 //            return session.createQuery("from Student",Student.class).list();
-            return  session.createCriteria(Student.class).list();
+            return session.createCriteria(Student.class).list();
         }
     }
 
@@ -54,11 +54,25 @@ public class StudentDaoImpl  implements StudentDao {
             // start a transaction
             transaction = session.beginTransaction();
 
-            Student student = session.get(Student.class,id);
+            Student student = session.get(Student.class, id);
 
             session.close();
 
             return student;
+        }
+    }
+
+    @Override
+    public void delete(Student id) {
+        Transaction transaction = null;
+        try (Session session = HibernateUtil.getSessionFactory().openSession()) {
+            // start a transaction
+            transaction = session.beginTransaction();
+            Student student = session.get(Student.class, id);
+            session.delete(student);
+            transaction.commit();
+
+            session.close();
         }
     }
 }

@@ -36,6 +36,11 @@ public class App {
                     break;
 
                 case 4:
+                    studentDelete();
+                    System.out.println("delete record");
+                    break;
+
+                case 5:
                     System.exit(1);
 
 
@@ -98,9 +103,15 @@ public class App {
         } else {
             System.out.println("No Data exist");
         }
+    }
+    private static void studentDelete() {
 
-
-
+        Scanner scanner=new Scanner(System.in);
+        StudentDao studentDao = new StudentDaoImpl();
+        System.out.println("Enter the id");
+        int id = scanner.nextInt();
+        Student student = studentDao.findById(id);
+        studentDao.delete(student);
     }
 
     }

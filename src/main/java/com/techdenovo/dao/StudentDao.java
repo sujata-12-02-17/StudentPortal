@@ -10,4 +10,5 @@ public interface StudentDao {
     public List<Student> getStudents();
     public void update(Student student);
     public Student findById(int id);
+    public  void delete(Student id);
 }
