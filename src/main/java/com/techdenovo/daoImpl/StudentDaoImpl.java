@@ -5,6 +5,7 @@ import com.techdenovo.domain.Student;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
+import java.io.Serializable;
 import java.util.List;
 
 public class StudentDaoImpl  implements StudentDao {
@@ -28,7 +29,6 @@ public class StudentDaoImpl  implements StudentDao {
 
     public List<Student> getStudents() {
         try (Session session = HibernateUtil.getSessionFactory().openSession()) {
-//            return session.createQuery("from Student",Student.class).list();
             return session.createCriteria(Student.class).list();
         }
     }
@@ -55,20 +55,19 @@ public class StudentDaoImpl  implements StudentDao {
             transaction = session.beginTransaction();
 
             Student student = session.get(Student.class, id);
-
-            session.close();
+//            session.close();
 
             return student;
         }
     }
 
     @Override
-    public void delete(Student id) {
+    public void deleteStudent(int id) {
         Transaction transaction = null;
         try (Session session = HibernateUtil.getSessionFactory().openSession()) {
             // start a transaction
             transaction = session.beginTransaction();
-            Student student = session.get(Student.class, id);
+            Student student = session.get(Student.class, (Serializable) id);
             session.delete(student);
             transaction.commit();
 
