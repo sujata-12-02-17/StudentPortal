@@ -1,3 +1,5 @@
 .idea
 StudentPortal.iml
 target
+*.class
+/target/

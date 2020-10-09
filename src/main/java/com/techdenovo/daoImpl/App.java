@@ -14,7 +14,7 @@ public class App {
         do {
 
             System.out.println("java programming menu:");
-            System.out.println("1.insert value");
+            System.out.println("1.insert value all");
             System.out.println("2.update record");
             System.out.println("3.Display value");
             System.out.println("4.Delete record");
