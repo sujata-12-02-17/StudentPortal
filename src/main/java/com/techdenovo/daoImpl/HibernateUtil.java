@@ -16,14 +16,14 @@ public class HibernateUtil {
         if (sessionFactory == null) {
             try {
                 Configuration configuration = new Configuration();
-
+                System.out.println(configuration);
                 // Hibernate settings equivalent to hibernate.cfg.xml's properties
                 Properties settings = new Properties();
-                settings.put(Environment.DRIVER, "org.h2.Driver");
-                settings.put(Environment.URL, "jdbc:h2:mem:test");
-                settings.put(Environment.USER, "sa");
-                settings.put(Environment.PASS, "");
-                settings.put(Environment.DIALECT, "org.hibernate.dialect.H2Dialect");
+                settings.put(Environment.DRIVER, "com.mysql.jdbc.Driver");
+                settings.put(Environment.URL, "jdbc:mysql://localhost:3306/test");
+                settings.put(Environment.USER, "root");
+                settings.put(Environment.PASS, "sujata");
+                settings.put(Environment.DIALECT, "org.hibernate.dialect.MySQLDialect");
 //                settings.put(Environment)
 
                 settings.put(Environment.SHOW_SQL, "true");
